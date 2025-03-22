@@ -12,17 +12,17 @@ import { Link, useLoaderData } from "react-router-dom";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   const { count } = useLoaderData();
-  const itemsPerPage = 10;
+  //   const itemsPerPage = 10;
   const numberOfPages = Math.ceil(count / itemsPerPage);
 
-  const pages = [];
-  for (let i = 0; i < numberOfPages; i++) {
-    pages.push(i);
-
-    // const pages = [...Array(numberOfPages).keys()];
-  }
+  //   const pages = [];
+  //   for (let i = 0; i < numberOfPages; i++) {
+  //     pages.push(i);
+  //   }
+  const pages = [...Array(numberOfPages).keys()];
   console.log(pages);
 
   //   console.log(count);
@@ -78,6 +78,12 @@ const Shop = () => {
     deleteShoppingCart();
   };
 
+  const handleItemsPerPage = (e) => {
+    console.log(e.target.value);
+    const val = parseInt(e.target.value);
+    setItemsPerPage(val);
+  };
+
   return (
     <div className="shop-container">
       <div className="products-container">
@@ -101,6 +107,17 @@ const Shop = () => {
         {pages.map((page) => (
           <button key={page}>{page}</button>
         ))}
+        <select
+          value={itemsPerPage}
+          onChange={handleItemsPerPage}
+          name=""
+          id=""
+        >
+          <option value="05">05</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+        </select>
       </div>
     </div>
   );
