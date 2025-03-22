@@ -96,6 +96,12 @@ const Shop = () => {
           </Link>
         </Cart>
       </div>
+
+      <div className="pagination">
+        {pages.map((page) => (
+          <button key={page}>{page}</button>
+        ))}
+      </div>
     </div>
   );
 };
