@@ -24,7 +24,7 @@ const Shop = () => {
   //     pages.push(i);
   //   }
   const pages = [...Array(numberOfPages).keys()];
-  console.log(pages);
+  //   console.log(pages);
 
   //   console.log(count);
 
