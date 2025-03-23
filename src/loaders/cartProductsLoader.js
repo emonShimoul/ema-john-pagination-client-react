@@ -4,7 +4,7 @@ const cartProductsLoader = async () => {
   // if cart data is in database, you have to use async await
   const storedCart = getShoppingCart();
   const storedCartIds = Object.keys(storedCart);
-  console.log(storedCartIds);
+  // console.log(storedCartIds);
 
   const savedCart = [];
 
@@ -25,11 +25,6 @@ const cartProductsLoader = async () => {
       savedCart.push(addedProduct);
     }
   }
-
-  // if you need to send two things
-  // return [products, savedCart]
-  // another options
-  // return { products, cart: savedCart }
 
   return savedCart;
 };
