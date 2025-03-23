@@ -12,13 +12,11 @@ import { Link, useLoaderData } from "react-router-dom";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(useLoaderData());
-  //   const cart = useLoaderData();
+
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const [count, setCount] = useState(0);
-  //   const { count } = useLoaderData();
-  //   const count = 76;
-  //   const itemsPerPage = 10;
+
   const numberOfPages = Math.ceil(count / itemsPerPage);
 
   //   const pages = [];
@@ -26,9 +24,6 @@ const Shop = () => {
   //     pages.push(i);
   //   }
   const pages = [...Array(numberOfPages).keys()];
-  //   console.log(pages);
-
-  //   console.log(count);
 
   useEffect(() => {
     fetch("http://localhost:5000/productsCount")
@@ -67,7 +62,7 @@ const Shop = () => {
   const handleAddToCart = (product) => {
     // cart.push(product); '
     let newCart = [];
-    // const newCart = [...cart, product];
+
     // if product doesn't exist in the cart, then set quantity = 1
     // if exist update quantity by 1
     const exists = cart.find((pd) => pd._id === product._id);
